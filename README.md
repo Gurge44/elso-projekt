@@ -1,2 +1,2 @@
-# elso-rpojekt
+# elso-projekt
 Első projekt
