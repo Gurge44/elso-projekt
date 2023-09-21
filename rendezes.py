@@ -12,29 +12,110 @@ class Feladat:
             for x in f:
                 self.t.append(Adat(x))
                 
-    def Novekvo(self):
-        n = self.t
-        n.sort()
-        print(n)
-                
-    def Csokkeno(self):
-        cs = self.t
-        cs.sort(reverse=True)
-        print(cs)
-        
-    def bubble_Sort(self):
 
-        for i in range(5 , 1 , -1):
+        
+    def bubble_Sort_inc(self):
+
+
+        for x in self.t:
             
-            for j in range(0 , i-1):
+
+            m = len(x.adat)
+            
+            for i in range(m):
                 
-                if self.adat[j] > self.adat[j + 1]:
-                    d = self.adat[j]
-                    self.adat[j] = self.adat[j + 1]
-                    self.adat[j + 1] = d
+                for j in range(0 , m - 1):
+                    
+                    if x.adat[j] > x.adat[j + 1]:
+                        d = x.adat[j]
+                        x.adat[j] = x.adat[j + 1]
+                        x.adat[j + 1] = d
+                    
                 
+            for i in range(len(x.adat)):
+                try:
+                    k = int(x.adat[i])
+                    print("%d"  %k , end=" ")
+                except:
+                    print("%s"  %x.adat[i] , end=" ")
+
+
+
+
+    def bubble_Sort_dec(self):
+
+            for x in self.t:
+
+                m = len(x.adat)
                 
-        print(self.adat)
+                for i in range(m):
+                    
+                    for j in range(0 , m - 1):
+                        
+                        if x.adat[j] < x.adat[j + 1]:
+                            d = x.adat[j]
+                            x.adat[j] = x.adat[j + 1]
+                            x.adat[j + 1] = d
+                        
+                    
+                for i in range(len(x.adat)):
+                    try:
+                        k = int(x.adat[i])
+                        print("%d"  %k , end=" ")
+                    except:
+                        print("%s"  %x.adat[i] , end=" ")
+    
+
+    
+    def Shell_Sort_inc(self):
+        b = [5, 3, 1]
+ 
+ 
+        for x in self.t:
+            a = x.adat
+            n = len(a)
+            
+            for k in range(0, 3):
+                lepes = b[k]
+                for j in range(lepes, n):
+                    i = j - lepes
+                    kulcs = a[j]
+                    while i >= 0 and a[i] > kulcs:
+                        a[i+lepes] = a[i]
+                        i = i - lepes
+                    a[i+lepes] = kulcs
+            
+
+            for i in a:
+                i = int(i)
+                print(i , end = " ")
+        
+        
+    def Shell_Sort_dec(self):
+        b = [5, 3, 1]
+ 
+ 
+        for x in self.t:
+            a = x.adat
+            n = len(a)
+            
+            for k in range(0, 3):
+                lepes = b[k]
+                for j in range(lepes, n):
+                    i = j - lepes
+                    kulcs = a[j]
+                    while i >= 0 and a[i] < kulcs:
+                        a[i+lepes] = a[i]
+                        i = i - lepes
+                    a[i+lepes] = kulcs
+            
+
+            for i in a:
+                i = int(i)
+                print(i , end = " ")
+    
+    
+    
     
         
     
@@ -53,5 +134,4 @@ def Kiiras(self):
         print("ERROR")
         
         
-Kiiras
-        
+f.Shell_Sort_dec()
