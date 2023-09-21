@@ -143,6 +143,7 @@ if not stop:  # A program leáll, ha a felhasználó lenyomta a CTRL + C billent
                     with open("ki.txt", "r", encoding="utf-8") as f:
                         toCheck = f.readline()
                 except:
+                    print("A ki.txt fájl nem elérhető, vagy nem létezik")
                     stop = True
                 
                 if not stop:  # Ha a fájl nem létezik, a program leáll
