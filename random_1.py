@@ -54,7 +54,7 @@ if not stop:
         case 2:
             while True:
                 try:
-                    amount = int(input("Hány darab írásjegy legyen generálva? "))
+                    amount = int(input("Hány darab szövegrész legyen generálva? "))
                     break
                 except ValueError:
                     print("Egy egész számot írj be.")
