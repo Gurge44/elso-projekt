@@ -1,4 +1,7 @@
+import subprocess
 
+
+subprocess.run(["python" , "random_1.py"])
 
 class Adat:
     def __init__(self , sor):
@@ -86,10 +89,15 @@ class Feladat:
                     a[i+lepes] = kulcs
             
 
-            for i in a:
-                i = int(i)
-                print(i , end = " ")
-        
+            try:
+                for i in a:
+                    i = int(i)
+                    print(i , end = " ")
+            except:
+                for i in a:
+                    i = str(i)
+                    print(i , end = " ")
+                
         
     def Shell_Sort_dec(self):
         b = [5, 3, 1]
@@ -110,28 +118,68 @@ class Feladat:
                     a[i+lepes] = kulcs
             
 
-            for i in a:
-                i = int(i)
-                print(i , end = " ")
+            try:
+                for i in a:
+                    i = int(i)
+                    print(i , end = " ")
+            except:
+                for i in a:
+                    i = int(i)
+                    print(i , end = " ")
+                
+
+
     
-    
-    
-    
-        
-    
-        
+
         
 f = Feladat("ki.txt")
 
 
-def Kiiras(self):
-    valasz = input("Csökkenő vagy növekvő(cs/n):")
-    if valasz == "cs":
-        f.Csokkeno()
-    elif valasz == "n":
-        f.Novekvo()
+def Kiiras():
+    
+    valasz_1 = input("Buborék vagy shell rendezés(b/s): ")
+    valasz_2 = input("Csökkenő vagy növekvő(cs/n): ")
+    
+    if valasz_1 == "b" or valasz_1 == "s" and valasz_2 == "cs" or valasz_2 == "n":
+        
+        if valasz_1 == "b" and valasz_2 == "n":
+            # valasz = 1
+            f.bubble_Sort_inc()
+        elif valasz_1 == "b" and valasz_2 == "cs":
+            # valasz = 2
+            f.bubble_Sort_dec()
+        elif valasz_1 == "s" and valasz_2 == "n":
+            # valasz = 3
+            f.Shell_Sort_inc()
+        elif valasz_1 == "s" and valasz_2 == "cs":
+            # valasz = 4
+            f.Shell_Sort_dec()
+            
+            
+        new = input("\nÚj hozzáadása(i/n): ")
+        if new == "i":
+            add = input("Új: ")
+            with open("ki.txt" , "a" , encoding = "utf-8") as ff:
+                ff.write(";" + add)
+            
+            subprocess.run(["python" , "rendezes_folyt.py"])
+
+            # match valasz:
+            #     case 1:
+            #         f.bubble_Sort_inc()
+            #     case 2:
+            #         f.bubble_Sort_dec()
+            #     case 3:
+            #         f.Shell_Sort_inc()
+            #     case 4:
+            #         f.Shell_Sort_dec()
+
+            
+        else:
+            pass
+            
     else:
         print("ERROR")
         
         
-f.Shell_Sort_dec()
+Kiiras()
