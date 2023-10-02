@@ -124,7 +124,7 @@ class Feladat:
                     print(i , end = " ")
             except:
                 for i in a:
-                    i = int(i)
+                    i = str(i)
                     print(i , end = " ")
                 
 
